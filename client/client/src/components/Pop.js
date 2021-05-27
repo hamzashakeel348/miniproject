@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import "../stylesheets/Pop.css";
-
 let title, description, delivery, cost;
 const mystyle = {
   height: "7em",
@@ -19,8 +18,6 @@ const Pass = () => {
 class Pop extends React.Component {
   constructor() {
     super();
-    this.toggle = this.toggle.bind(this);
-    this.close = this.close.bind(this);
   }
 
   toggle = () => {
@@ -53,7 +50,6 @@ class Pop extends React.Component {
             id="Description"
             placeholder="Description"
           />
-          {/* <p>hamza</p> */}
           <input
             className="input"
             type="text"
@@ -81,9 +77,7 @@ class Pop extends React.Component {
             <p style={updated}>$0.00</p>
             <br></br>
           </span>
-          <button onClick={Pass} className="button">
-            Create Project
-          </button>
+          <button className="button">Create Project</button>
         </div>
         <span id="MainButton" onClick={this.toggle}>
           {this.props.head1}
