@@ -1,5 +1,6 @@
 import React from "react";
 import Pop from "./Pop";
+import "../stylesheets/Main.css";
 const check = () => {
   console.log("working");
   <Pop />;
