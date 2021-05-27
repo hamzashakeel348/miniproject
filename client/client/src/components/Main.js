@@ -1,5 +1,6 @@
 import React from "react";
 import Pop from "./Pop";
+import Popup from "./Popup";
 import "../stylesheets/Main.css";
 const check = () => {
   console.log("working");
@@ -16,6 +17,14 @@ class Main extends React.Component {
       <div>
         <a>
           <Pop head1="Create offer popup" />
+
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Popup head="Terms of Services" />
         </a>
       </div>
     );
