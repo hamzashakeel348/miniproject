@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import "../stylesheets/Pop.css";
+import Servicespop from "./Popup";
+
 let title, description, delivery, cost;
 const mystyle = {
   height: "7em",
@@ -29,7 +32,6 @@ class Pop extends React.Component {
     document.getElementById("popup").style.display = "none";
     document.getElementById("MainButton").style.display = "block";
   };
-
   render() {
     return (
       <div className="pop">
@@ -77,8 +79,14 @@ class Pop extends React.Component {
             <p style={updated}>$0.00</p>
             <br></br>
           </span>
-          <button className="button">Create Project</button>
+          <button
+            className="button"
+            onClick={<Servicespop head="Terms of Services" />}
+          >
+            Create Project
+          </button>
         </div>
+
         <span id="MainButton" onClick={this.toggle}>
           {this.props.head1}
         </span>
