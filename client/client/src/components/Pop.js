@@ -31,6 +31,7 @@ class Pop extends React.Component {
   close = () => {
     document.getElementById("popup").style.display = "none";
     document.getElementById("MainButton").style.display = "block";
+    <Servicespop />;
   };
   render() {
     return (
