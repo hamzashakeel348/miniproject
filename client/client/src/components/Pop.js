@@ -6,7 +6,7 @@ const mystyle = {
   height: "7em",
 };
 const updated = {
-  width: "8em",
+  width: "25%",
 };
 const Pass = () => {
   title = document.getElementById("title").value;
