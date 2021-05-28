@@ -67,8 +67,15 @@
 #cell2 > p {
   font-size: 0.9em;
   width: 70%;
+  color: #797e8b;
+
   display: inline-block;
   /* padding-left: 3em; */
+}
+#cell2 > h5 {
+  color: #797e8b;
+  font-weight: 400;
+  font-size: 0.9em;
 }
 .button {
   background-color: #1053df;
