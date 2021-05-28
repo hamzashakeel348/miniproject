@@ -1,5 +1,5 @@
 #pop {
-  width: 25vw;
+  width: 30vw;
   height: 100%;
   /* box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); */
   background-color: #ffff;
@@ -29,14 +29,14 @@
 #cell1,
 #cell2 {
   border: 1px solid #e0e0e0;
-  width: 83%;
+  width: 90%;
   margin: auto;
   border-radius: 5px;
   display: inline-block;
 }
 #cell3 {
   border: 1px solid black;
-  width: 83%;
+  width: 80%;
   border-radius: 5px;
 }
 #cell2 {
@@ -66,7 +66,7 @@
 #cell1 > p,
 #cell2 > p {
   font-size: 0.9em;
-  width: 70%;
+  width: 72%;
   color: #797e8b;
 
   display: inline-block;
