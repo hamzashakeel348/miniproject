@@ -30,7 +30,7 @@
   border: 1px solid #e6eaef;
   color: #c4cad2;
   height: 2em;
-  width: 20em;
+  width: 70%;
   border-radius: 5px;
   margin-top: 1em;
   padding-left: 1em;
@@ -49,7 +49,7 @@ input:focus {
   border: 0px solid #e6eaef;
 }
 #Details_Main {
-  width: 49%;
+  width: 55%;
   display: inline-block;
   font-weight: 400;
   font-size: 0.9em;
