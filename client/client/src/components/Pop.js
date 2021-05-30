@@ -1,27 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import "../stylesheets/Pop.css";
 import Servicespop from "./Popup";
-
-let title, description, delivery, cost;
+import moment from "moment";
+import axios from "axios";
 const mystyle = {
   height: "7em",
 };
 const updated = {
   width: "25%",
 };
-const Pass = () => {
+let title,
+  description,
+  delDate,
+  projectCost,
+  IsTitleInValid,
+  IsdescriptionInValid;
+const getvalues = () => {
   title = document.getElementById("title").value;
-  cost = document.getElementById("Cost").value;
+  projectCost = document.getElementById("Cost").value;
   description = document.getElementById("Description").value;
-  delivery = document.getElementById("Delivery").value;
-  console.log(title, cost, delivery, description);
+  delDate = document.getElementById("Delivery").value;
+  console.log(title, projectCost, description, delDate);
 };
+
 class Pop extends React.Component {
   constructor() {
     super();
   }
+
+  handleSubmit = (event) => {
+    getvalues();
+    let isInvalidForm = false;
+    const currentDate = moment().format("DD.MM.YYYY ");
+    const dateIsValid = moment(delDate, "DD.MM.YYYY", true).isValid();
+    let check = moment(currentDate).isAfter(delDate);
+    if (title.length > 80 || title === "") {
+      alert("Invalid Title");
+      isInvalidForm = true;
+    } else if (description.length > 200 || description === "") {
+      alert("Invalid Description");
+      isInvalidForm = true;
+    } else if (!dateIsValid || !check) {
+      alert("Invalid format Or Deadline should be in future");
+      // setIsDelDateInValid(true);
+      isInvalidForm = true;
+    } else if (
+      isNaN(+projectCost) ||
+      +projectCost < 100 ||
+      +projectCost > 1000 ||
+      projectCost === ""
+    ) {
+      // setIsProjectCostInvalid(true);
+      alert("Invalid Cost");
+
+      isInvalidForm = true;
+    }
+    if (isInvalidForm) {
+      return -1;
+    } else {
+      axios
+        .post("http://localhost:3000/project", {
+          name: title,
+          summary: description,
+          date: delDate,
+          cost: projectCost,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      return true;
+    }
+  };
 
   toggle = () => {
     document.getElementById("popup").style.display = "block";
@@ -31,8 +85,8 @@ class Pop extends React.Component {
   close = () => {
     document.getElementById("popup").style.display = "none";
     document.getElementById("MainButton").style.display = "block";
-    <Servicespop />;
   };
+
   render() {
     return (
       <div className="pop">
@@ -45,13 +99,20 @@ class Pop extends React.Component {
             </button>
             <hr></hr>
           </span>
-          <input id="title" type="text" className="input" placeholder="Title" />
+          {/* <form method="post" action="/project" onSubmit={this.handleSubmit}> */}
+          <input
+            id="title"
+            type="text"
+            className="input"
+            placeholder="Title"
+            value={title}
+          />
           <input
             type="text"
             style={mystyle}
             className="input"
             id="Description"
-            placeholder="Description"
+            value={description}
           />
           <input
             className="input"
@@ -63,12 +124,14 @@ class Pop extends React.Component {
             className="input"
             id="Delivery"
             placeholder="Delivery Date"
+            value={delDate}
           />
           <input
             type="text"
             className="input"
             id="Cost"
             placeholder="Project Cost"
+            value={projectCost}
           />{" "}
           <br></br>
           <span className="Fee_Details">
@@ -77,15 +140,13 @@ class Pop extends React.Component {
           </span>
           <span className="Fee_Details">
             <p id="Details_Main">Total Amount in $USD</p>
-            <p style={updated}>$0.00</p>
+            <p style={updated}>{projectCost * 0.2}</p>
             <br></br>
           </span>
-          <button
-            className="button"
-            onClick={<Servicespop head="Terms of Services" />}
-          >
+          <button className="button" onClick={this.handleSubmit}>
             Create Project
           </button>
+          {/* </form> */}
         </div>
 
         <span id="MainButton" onClick={this.toggle}>
