@@ -25,12 +25,12 @@ class Popthree extends React.Component {
   constructor() {
     super();
     this.state = {
-      delivery: 0,
       data: {},
     };
   }
   /*I used ComponentDidMount because it runs the axios and get the data from the requested
-   path before rendering the page it stores data in the Data object and that Data object is
+   path just after first render of page, and then used Setstate to rerender the page along with the 
+   fetched details. It stores data in the "data" object and that Data object is
    then used through out the app*/
   componentDidMount() {
     axios
@@ -64,8 +64,7 @@ class Popthree extends React.Component {
   };
 
   clo = () => {
-    document.getElementById("pop").style.display = "none";
-    document.getElementById("Button").style.display = "block";
+    document.getElementById("pop3").style.display = "none";
   };
 
   render() {
@@ -108,7 +107,9 @@ class Popthree extends React.Component {
                 <p>attachment</p>
               </span>
               <div id="div_Button" data-testid="Cancel-Button">
-                <button className="Button">Cancel</button>
+                <button className="Button" onClick={this.clo}>
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
