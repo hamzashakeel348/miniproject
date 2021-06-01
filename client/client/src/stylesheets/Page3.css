@@ -1,11 +1,10 @@
 #pop3 {
   width: 30vw;
-  height: 100%;
+  /* height: 100%; */
   /* box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); */
   background-color: #ffff;
   border-radius: 10px;
-  padding-top: 1em;
-  /* display: none; */
+  padding: 1em 0em;
   margin: 3em auto;
   font-weight: 300;
 }
@@ -26,15 +25,15 @@
 .Heading_pop3 > p {
   width: 100%;
   font-style: italic;
-  color: #8987f9;
+  color: #7fa5f6;
   font-weight: 500;
 }
 
-.button {
-  background-color: #1053df;
+.Button {
+  background-color: #2955e4;
   color: white;
   border: none;
-  padding: 1em 3em;
+  padding: 0.8em 1.6em;
   margin: 1em 0em 2em 0em;
   border-radius: 5px;
   box-shadow: 0px 2px 18px #888888;
@@ -54,6 +53,7 @@
 #section2 > h4 {
   font-weight: 300;
   margin: auto;
+  color: #404040;
   margin-top: 1.2em;
 }
 #section2 > span > p {
@@ -61,19 +61,41 @@
   margin-top: -1em;
 }
 #section2 > span > h4 {
-  color: #5600e7;
+  color: #3360e5;
   font-weight: 400;
 }
 #section3 {
-  width: 85%;
+  width: 84.5%;
   margin: auto;
   padding-left: 1em;
   text-align: left;
   border: 2px solid #f9fafb;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 3em;
 }
-#delivery_date {
+#section3 > h5 {
+  color: #6a6f75;
+  font-weight: 300;
+}
+#delivery_date,
+#Attachment {
   display: inline-block;
+  padding-left: 0.3em;
 }
+
 #del {
   display: inline-block;
+  font-size: 0.7em;
+  padding-left: 0.2em;
+}
+#Attachment > p {
+  display: inline-block;
+  font-size: 0.8em;
+  padding-left: 0.5em;
+}
+
+#div_Button {
+  float: right;
+  padding: 1.5em 1em;
 }
