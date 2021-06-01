@@ -57,7 +57,7 @@ While developing the desired App, I have used ReactJs , Vanilla CSS, and the alr
 - Open the Root folder of the App in the terminal, run "Nodemon app.js", it will execute the server.
 - After running the server, open the Client/Client in the terminal and then run "npm start", it will execute the App.
 
-# Description
+## Description
 
 - Moving Forward in the app, you will see the "Redirect to Form" button on the webpage, on clicking that the app will be directed to the Page1 of the required modal, here you will see the input boxes for different fields, such as Title, Description, Upload Attachement, Delivery Date and Cost. Except the Upload Attachement all of them are required for submitting the data. Required Validation is performed in the handleSubmit() function in "Pop.js" file. Moreover below these input boxes, you will see two labels, that will be showing you the CleverX fee for the Project Cost and then the total cost for the project. They will be updated as the input for the Project Cost updates.
 
@@ -68,7 +68,7 @@ While developing the desired App, I have used ReactJs , Vanilla CSS, and the alr
 
 - it's the end of the required App. if you want to cancel the order for the project, you can simply click the "Cancel" Button which will close the form for the project.
 
-# Note
+## Note
 
 Responsiveness of this app was not required by the team, so I didn't deployed it for different screen sizes. I developed it on my screen size.
 
