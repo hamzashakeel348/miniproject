@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from "react";
 import { GrClose } from "react-icons/gr";
 import "../stylesheets/Pop.css";
-import Servicespop from "./Popup";
+import Popup from "./Popup";
 import moment from "moment";
 import axios from "axios";
 const mystyle = {
@@ -11,12 +10,13 @@ const mystyle = {
 const updated = {
   width: "25%",
 };
+var dateFormat = require("dateformat");
+
 let title,
   description,
   delDate,
   projectCost,
-  IsTitleInValid,
-  IsdescriptionInValid;
+  difference = 0;
 const getvalues = () => {
   title = document.getElementById("title").value;
   projectCost = document.getElementById("Cost").value;
@@ -28,23 +28,30 @@ const getvalues = () => {
 class Pop extends React.Component {
   constructor() {
     super();
+    this.state = {
+      check: false,
+      number: 0,
+      cost: 0,
+    };
   }
+  handleChange = (num) => this.setState({ number: num * 0.2, cost: num * 1 });
 
+  handleClick = () => {
+    this.setState({ check: true });
+  };
   handleSubmit = (event) => {
     getvalues();
     let isInvalidForm = false;
-    const currentDate = moment().format("DD.MM.YYYY ");
-    const dateIsValid = moment(delDate, "DD.MM.YYYY", true).isValid();
-    let check = moment(currentDate).isAfter(delDate);
+    let spl = delDate.split("/");
+    const currentDate = new Date();
+    let curr = dateFormat(currentDate, "dd/mm/yyyy");
+    curr = curr.split("/");
+
     if (title.length > 80 || title === "") {
       alert("Invalid Title");
       isInvalidForm = true;
     } else if (description.length > 200 || description === "") {
       alert("Invalid Description");
-      isInvalidForm = true;
-    } else if (!dateIsValid || !check) {
-      alert("Invalid format Or Deadline should be in future");
-      // setIsDelDateInValid(true);
       isInvalidForm = true;
     } else if (
       isNaN(+projectCost) ||
@@ -52,14 +59,32 @@ class Pop extends React.Component {
       +projectCost > 1000 ||
       projectCost === ""
     ) {
-      // setIsProjectCostInvalid(true);
       alert("Invalid Cost");
 
       isInvalidForm = true;
     }
+    if (spl[2] < curr[2]) {
+      isInvalidForm = true;
+      console.log("yes less");
+    } else if (spl[1] < curr[1]) {
+      isInvalidForm = true;
+      console.log("month less");
+    } else if (spl[0] <= curr[0] && spl[1] < curr[1] && spl[2] < curr[2]) {
+      isInvalidForm = true;
+      console.log("day less");
+    } else {
+      if (spl[2] >= curr[2] && spl[1] >= curr[1] && spl[0] > curr[0]) {
+        difference =
+          (curr[2] - spl[2]) * 365 +
+          (spl[1] - curr[1]) * 30 +
+          (spl[0] - curr[0]);
+        console.log(difference);
+      }
+    }
     if (isInvalidForm) {
       return -1;
     } else {
+      this.handleClick();
       axios
         .post("http://localhost:3000/project", {
           name: title,
@@ -77,83 +102,81 @@ class Pop extends React.Component {
     }
   };
 
-  toggle = () => {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("MainButton").style.display = "none";
-  };
-
   close = () => {
     document.getElementById("popup").style.display = "none";
     document.getElementById("MainButton").style.display = "block";
   };
 
   render() {
-    return (
-      <div className="pop">
-        <div id="popup">
-          <span className="Heading">
-            <h2>Create Project</h2>
-
-            <button onClick={this.close}>
-              <GrClose />
-            </button>
-            <hr></hr>
-          </span>
-          {/* <form method="post" action="/project" onSubmit={this.handleSubmit}> */}
-          <input
-            id="title"
-            type="text"
-            className="input"
-            placeholder="Title"
-            value={title}
-          />
-          <input
-            type="text"
-            style={mystyle}
-            className="input"
-            id="Description"
-            value={description}
-          />
-          <input
-            className="input"
-            type="text"
-            placeholder="Upload attachment"
-          />
-          <input
-            type="text"
-            className="input"
-            id="Delivery"
-            placeholder="Delivery Date"
-            value={delDate}
-          />
-          <input
-            type="text"
-            className="input"
-            id="Cost"
-            placeholder="Project Cost"
-            value={projectCost}
-          />{" "}
-          <br></br>
-          <span className="Fee_Details">
-            <p id="Details_Main">CleverX transaction fees(20%)</p>
-            <p>$0.00</p>
-          </span>
-          <span className="Fee_Details">
-            <p id="Details_Main">Total Amount in $USD</p>
-            <p style={updated}>{projectCost * 0.2}</p>
-            <br></br>
-          </span>
-          <button className="button" onClick={this.handleSubmit}>
-            Create Project
-          </button>
-          {/* </form> */}
+    if (this.state.check) {
+      return (
+        <div>
+          <Popup></Popup>
         </div>
+      );
+    } else {
+      return (
+        <div className="pop">
+          <div id="popup">
+            <span className="Heading">
+              <h2>Create Project</h2>
 
-        <span id="MainButton" onClick={this.toggle}>
-          {this.props.head1}
-        </span>
-      </div>
-    );
+              <button onClick={this.close}>
+                <GrClose />
+              </button>
+              <hr></hr>
+            </span>
+            <input
+              id="title"
+              type="text"
+              className="input"
+              placeholder="Title"
+              value={title}
+            />
+            <input
+              type="text"
+              style={mystyle}
+              className="input"
+              id="Description"
+              value={description}
+            />
+            <input
+              className="input"
+              type="text"
+              placeholder="Upload attachment"
+            />
+            <input
+              type="text"
+              className="input"
+              id="Delivery"
+              placeholder="Delivery Date in DD/MM/YYYY Format"
+              value={delDate}
+            />
+            <input
+              type="text"
+              className="input"
+              id="Cost"
+              onChange={(e) => this.handleChange(e.target.value)}
+              placeholder="Project Cost"
+              value={projectCost}
+            />{" "}
+            <br></br>
+            <span className="Fee_Details">
+              <p id="Details_Main">CleverX transaction fees(20%)</p>
+              <p>${this.state.number}</p>
+            </span>
+            <span className="Fee_Details">
+              <p id="Details_Main">Total Amount in $USD</p>
+              <p style={updated}>${this.state.cost}</p>
+              <br></br>
+            </span>
+            <button className="button" onClick={this.handleSubmit}>
+              Create Project
+            </button>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
