@@ -62,8 +62,8 @@ Responsiveness of this app was not required by the team, so I didn't deployed it
 
 ![alt text](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
 
-https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1
+![alt text](https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1)
 
-https://www.dropbox.com/s/931wuuexzy5otw7/page2.png?raw=1
+![alt text](https://www.dropbox.com/s/931wuuexzy5otw7/page2.png?raw=1)
 
-https://www.dropbox.com/s/neqrcryj716uxhr/page3.png?raw=1
+![alt text](https://www.dropbox.com/s/neqrcryj716uxhr/page3.png?raw=1)
