@@ -2,6 +2,13 @@
 
 Mini Project as a proof of concept for the role of **Frontend Developer at CleverX**. Please read the following document carefully and feel free to ask any questions on Angel List, in case you are confused about anything.
 
+## Folder and Files
+
+- Main.js: it is used for providing the path to our app, onclicking the button on it will move to next page.
+- Pop.js: it generates a form wherein user can create a new project by filling in the required details
+- Popup.js: Component to represent the list of cards saved by user
+- Pop3.js: final page where user can see purchase summary to confirm their entered details or here they can cancel the purchase
+
 ## Getting Started with Create React App
 
 - Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install the dependencies.
