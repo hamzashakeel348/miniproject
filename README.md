@@ -87,8 +87,8 @@ Mini Project as a proof of concept for the role of **Frontend Developer at Cleve
 
 # Getting Started with Create React App
 
-Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install all of the dependencies.
-Similarly, Open the root folder of the repo in the terminal and run "npm install" to install all of the dependencies of the Server
+Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install the dependencies.
+Similarly, Open the root folder of the repo in the terminal and run "npm install" to install the dependencies of the Server
 
 # APIs USed
 
