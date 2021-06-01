@@ -57,7 +57,7 @@
   padding-left: 3em;
 }
 #cell1 {
-  border: 1px solid #3a52a1;
+  border: 1px solid #2955e4;
 }
 #cell1 > span > img,
 #cell2 > span > img {
@@ -88,7 +88,7 @@
   font-size: 0.9em;
 }
 .button {
-  background-color: #1053df;
+  background-color: #2955e4;
   color: white;
   border: none;
   padding: 1em 3em;
