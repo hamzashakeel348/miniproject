@@ -1,33 +1,34 @@
 import React from "react";
 import Pop from "./Pop";
-import Popup from "./Popup";
 import "../stylesheets/Main.css";
-const check = () => {
-  console.log("working");
-  <Pop />;
-};
+import Popthree from "./pop3";
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor() {
+    super();
+    this.state = {
+      check: false,
+    };
   }
+  handleClick = () => {
+    this.setState({ check: true });
+  };
 
   render() {
-    return (
-      <div>
-        <a>
-          <Pop head1="Create offer popup" />
-
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Popup head="Terms of Services" />
-        </a>
-      </div>
-    );
+    if (this.state.check) {
+      return (
+        <div>
+          <Popthree></Popthree>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button className="button" onClick={this.handleClick}>
+            Redirect to Form
+          </button>
+        </div>
+      );
+    }
   }
 }
 
