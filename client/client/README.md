@@ -48,9 +48,10 @@ it will run the app.js and by runnig app.js the server is started. I used Nodemo
 
 You can run this command to run the unit test deployed by the developer. By running this command, and then press "a" to run all test, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
 
-## Documentation for the App.
+# Documentation for the App.
 
-While developing the desired App, I have used ReactJs , Vanilla CSS, and the already provided Server(based on NodeJs and ExpressJS). I have used Vanilla CSS because it was mentioned on the main repo that React and CSS skills will be analyzed in the whole app so I used vanilla CSS instead of BootStrap or any other UI-kit.
+- While developing the desired App, I have used ReactJs , Vanilla CSS, and the already provided Server(based on NodeJs and ExpressJS).
+- I opted Vanilla CSS because it was mentioned on the main repo that React and CSS skills will be analyzed in the whole app so I used vanilla CSS instead of BootStrap or any other UI-kit.
 
 ## How to Start the App?
 
