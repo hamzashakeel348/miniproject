@@ -60,7 +60,7 @@ While developing the desired App, I have used ReactJs , Vanilla CSS, and the alr
 
 Responsiveness of this app was not required by the team, so I didn't deployed it for different screen sizes. I developed it on my screen size.
 
-[](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
+![alt text](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
 
 https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1
 
