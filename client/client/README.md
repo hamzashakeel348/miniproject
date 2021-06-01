@@ -1,70 +1,69 @@
+# Mini Project
+
+Mini Project as a proof of concept for the role of **Frontend Developer at CleverX**. Please read the following document carefully and feel free to ask any questions on Angel List, in case you are confused about anything.
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install all of the dependencies.
+Similarly, Open the root folder of the repo in the terminal and run "npm install" to install all of the dependencies of the Server
+
+# APIs USed
+
+**GET** /project - Get the project data.
+**POST** /project - Post the project data.
+**AXIOS** I used axios to get and post data on the Api
+**@testing-library/react** I used testing library to deploy unit tests for my App.
+**Moment** I used Moment library for the Date Manipulation, but later on I removed it and moved to simple manipulation.
+**Dropbox** I used dropbox to upload the visa images on the server.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
+Open [http://localhost:3000] to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits.
+You will also see if any errors in the console.
 
-### `yarn test`
+### `nodemon app.js`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+it will run the app.js and by runnig app.js the server is started. I used Nodemon because it automatically reloads the server as we change or save the enviroment.
 
-### `yarn build`
+### `npm run test` or 'npm test'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can run this command to run the unit test deployed by the developer. By running this command, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Documentation for the App.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+While developing the desired App, I have used ReactJs , Vanilla CSS, and the already provided Server(based on NodeJs and ExpressJS). I have used Vanilla CSS because it was mentioned on the main repo that React and CSS skills will be analyzed in the whole app so I used vanilla CSS instead of BootStrap or any other UI-kit.
 
-### `yarn eject`
+# How to Start the App?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Open the Root folder of the App in the terminal, run "Nodemon app.js", it will execute the server.
+- After running the server, open the Client/Client in the terminal and then run "npm start", it will execute the App.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Description
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+=> Moving Forward in the app, you will see the "Redirect to Form" button on the webpage, on clicking that the app will be directed to the Page1 of the required modal, here you will see the input boxes for different fields, such as Title, Description, Upload Attachement, Delivery Date and Cost. Except the Upload Attachement all of them are required for submitting the data. Required Validation is performed in the handleSubmit() function in "Pop.js" file. Moreover below these input boxes, you will see two labels, that will be showing you the CleverX fee for the Project Cost and then the total cost for the project. They will be updated as the input for the Project Cost updates.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+=> After submitting the information, clicking on the "Create Project" Button will move you to the next modal, where you can select your payment process. Visa card payment is available for that app, first cell of the app is choosen by default, but in case if you want to pay by second card, then you can click on second cell, it will be selected. "Add Card" button is a dummy button, it does nothing.
 
-## Learn More
+=> After Clicking on "Pay" Button, you will be directed to the third and the last modal of this app, where you will be getting the information for the project such as Project Cost and the total project cost inclusive of CleverX fee(20%).
+Below that you will notice that delivery dys for the project is mentioned which are calculated as per the entered Delivery date using the "CalcDays" function in "pop3.js" file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+=> it's the end of the required App. if you want to cancel the order for the project, you can simply click the "Cancel" Button which will close the form for the project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Note
 
-### Code Splitting
+Responsiveness of this app was not required by the team, so I didn't deployed it for different screen sizes. I developed it on my screen size.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1
 
-### Analyzing the Bundle Size
+https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://www.dropbox.com/s/931wuuexzy5otw7/page2.png?raw=1
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://www.dropbox.com/s/neqrcryj716uxhr/page3.png?raw=1
