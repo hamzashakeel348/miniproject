@@ -79,7 +79,7 @@ If you need VISA CARD image, please refer to this link: https://www.merchantsign
 - Ability to write documentation for your code.
 - **Bonus points for writing unit tests**
 
-# DOCUMENTATION BY DEVELOPER( M Hamza Shakeel)
+### DOCUMENTATION BY DEVELOPER( M Hamza Shakeel)
 
 # Mini Project
 
@@ -142,3 +142,11 @@ Below that you will notice that delivery dys for the project is mentioned which 
 # Note
 
 Responsiveness of this app was not required by the team, so I didn't deployed it for responsiveness.
+
+![alt text](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
+
+![alt text](https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1)
+
+![alt text](https://www.dropbox.com/s/931wuuexzy5otw7/page2.png?raw=1)
+
+![alt text](https://www.dropbox.com/s/neqrcryj716uxhr/page3.png?raw=1)
