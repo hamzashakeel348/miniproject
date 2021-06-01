@@ -5,7 +5,7 @@
   background-color: #ffff;
   border-radius: 10px;
   padding-top: 1em;
-  display: none;
+  /* display: none; */
   margin: 3em auto;
 }
 .Heading {
@@ -13,7 +13,13 @@
   align-items: center;
   color: #4b4b4b;
 }
-
+#arrow {
+  color: #3a52a1;
+}
+#arrow:hover {
+  transform: rotate(-90deg);
+  transition: transform 0.5s;
+}
 .Heading > h2 {
   display: inline-block;
   width: 70%;
@@ -25,6 +31,10 @@
   display: inline-block;
   color: black;
   font-weight: lighter;
+}
+.Heading > button:hover {
+  transform: rotate(360deg);
+  transition: transform 1.5s;
 }
 #cell1,
 #cell2 {
