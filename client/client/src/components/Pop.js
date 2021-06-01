@@ -1,9 +1,10 @@
 import React from "react";
 import { GrClose } from "react-icons/gr";
 import "../stylesheets/Pop.css";
-import Popup from "./Popup";
-import moment from "moment";
+import Poptwo from "./Popup";
 import axios from "axios";
+
+//Styled Components for Body Tags
 const mystyle = {
   height: "7em",
 };
@@ -34,7 +35,8 @@ class Pop extends React.Component {
       cost: 0,
     };
   }
-  handleChange = (num) => this.setState({ number: num * 0.2, cost: num * 1 });
+  handleChange = (num) =>
+    this.setState({ number: num * 0.2, cost: num * 1 + num * 0.2 });
 
   handleClick = () => {
     this.setState({ check: true });
@@ -47,16 +49,16 @@ class Pop extends React.Component {
     let curr = dateFormat(currentDate, "dd/mm/yyyy");
     curr = curr.split("/");
 
-    if (title.length > 80 || title === "") {
+    if (title === "" || title.length > 80) {
       alert("Invalid Title");
       isInvalidForm = true;
-    } else if (description.length > 200 || description === "") {
+    } else if (description === "" || description.length > 200) {
       alert("Invalid Description");
       isInvalidForm = true;
     } else if (
       isNaN(+projectCost) ||
-      +projectCost < 100 ||
       +projectCost > 1000 ||
+      +projectCost < 100 ||
       projectCost === ""
     ) {
       alert("Invalid Cost");
@@ -104,24 +106,23 @@ class Pop extends React.Component {
 
   close = () => {
     document.getElementById("popup").style.display = "none";
-    document.getElementById("MainButton").style.display = "block";
   };
 
   render() {
     if (this.state.check) {
       return (
         <div>
-          <Popup></Popup>
+          <Poptwo></Poptwo>
         </div>
       );
     } else {
       return (
-        <div className="pop">
+        <div className="pop" data-testid="pop1">
           <div id="popup">
             <span className="Heading">
-              <h2>Create Project</h2>
+              <h2>Create project</h2>
 
-              <button onClick={this.close}>
+              <button onClick={this.close} data-testid="Close">
                 <GrClose />
               </button>
               <hr></hr>
@@ -131,46 +132,52 @@ class Pop extends React.Component {
               type="text"
               className="input"
               placeholder="Title"
-              value={title}
+              required
             />
             <input
               type="text"
               style={mystyle}
               className="input"
               id="Description"
-              value={description}
+              required
+              placeholder="Description"
             />
             <input
               className="input"
               type="text"
-              placeholder="Upload attachment"
+              placeholder="&#xf342; Upload Attachment"
             />
             <input
               type="text"
               className="input"
               id="Delivery"
               placeholder="Delivery Date in DD/MM/YYYY Format"
-              value={delDate}
             />
             <input
               type="text"
               className="input"
               id="Cost"
+              required
               onChange={(e) => this.handleChange(e.target.value)}
               placeholder="Project Cost"
-              value={projectCost}
             />{" "}
             <br></br>
             <span className="Fee_Details">
               <p id="Details_Main">CleverX transaction fees(20%)</p>
-              <p>${this.state.number}</p>
+              <p data-testid="Cell1">${this.state.number}</p>
             </span>
             <span className="Fee_Details">
               <p id="Details_Main">Total Amount in $USD</p>
-              <p style={updated}>${this.state.cost}</p>
+              <p data-testid="Cell2" style={updated}>
+                ${this.state.cost}
+              </p>
               <br></br>
             </span>
-            <button className="button" onClick={this.handleSubmit}>
+            <button
+              className="button"
+              data-testid="Project-Button"
+              onClick={this.handleSubmit}
+            >
               Create Project
             </button>
           </div>
