@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { GrClose } from "react-icons/gr";
+import React from "react";
 import "../stylesheets/Page3.css";
-import { BiArrowBack } from "react-icons/bi";
 import Pop from "./Pop";
-import moment from "moment";
-
+import axios from "axios";
+import { AiOutlineFolder } from "react-icons/ai";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BsFileEarmarkText } from "react-icons/bs";
-import { GoVerified } from "react-icons/go";
+//Dateformat library used for the setting the desired dateformat
 var dateFormat = require("dateformat");
 
+//Styled Components for Body Tags
 const style_component = {
   display: "inline-block",
+  color: "#557eea",
+  fontSize: "1.1em",
+  verticalAlign: "middle",
 };
 const styles = {
   fontSize: "1.3em",
@@ -28,40 +29,36 @@ class Popthree extends React.Component {
       data: {},
     };
   }
-
+  /*I used ComponentDidMount because it runs the axios and get the data from the requested
+   path before rendering the page it stores data in the Data object and that Data object is
+   then used through out the app*/
   componentDidMount() {
     axios
       .get("http://localhost:3000/project")
       .then((response) => {
         this.setState({ data: response.data });
-        console.log(this.state.data.cost);
         this.calcDays(response.data.date);
       })
       .catch((err) => window.alert(err));
   }
-
-  //   componentDidUpdate = () => {
-  //     axios
-  //       .get("http://localhost:3000/project")
-  //       .then((response) => {
-  //         data = response.data;
-  //         console.log(data.cost);
-  //         // setLoading(false);
-  //         this.calcDays(response.data.date);
-  //       })
-  //       .catch((err) => window.alert(err));
-  //   };
+  /*CalcDays Function is used the calculate the delivery date of the Projct.
+   Basically it uses current date and the Date entered by the user and then 
+   find the difference of that two dates.
+  */
   calcDays = (registereDate) => {
     let spl = registereDate.split("/");
     const currentDate = new Date();
     let curr = dateFormat(currentDate, "dd/mm/yyyy");
     curr = curr.split("/");
-    if (spl[2] >= curr[2] || spl[1] || curr[1] || spl[0] > curr[0]) {
+    /*This condition is for date check and calculating the differnce between the Dates to get 
+    Delivery Days*/
+    if (spl[2] >= curr[2] && spl[1] >= curr[1] && spl[0] > curr[0]) {
       difference =
         (curr[2] - spl[2]) * 365 + (spl[1] - curr[1]) * 30 + (spl[0] - curr[0]);
       document.getElementById("del").innerHTML = difference + " day delivery";
     }
   };
+  //handleClick function for conditional rendering
   handleClick = () => {
     this.setState({ check: true });
   };
@@ -81,7 +78,7 @@ class Popthree extends React.Component {
     } else {
       return (
         <div>
-          <div id="pop3">
+          <div id="pop3" data-testid="pop3">
             <span className="Heading_pop3">
               <BsFileEarmarkText style={styles} />
               <p>Your project request</p>
@@ -90,8 +87,8 @@ class Popthree extends React.Component {
             <div id="section2">
               <h4>I'll be your business expert</h4>
               <span>
-                <h4>${this.state.data.cost}</h4>
-                <p>
+                <h4 data-testid="Cell1">${this.state.data.cost}</h4>
+                <p data-testid="Cell2">
                   Total : ${+this.state.data.cost * 0.2 + +this.state.data.cost}{" "}
                 </p>
                 <p>(CleverX fee + 20%)</p>
@@ -106,9 +103,13 @@ class Popthree extends React.Component {
                 <AiOutlineCalendar style={style_component} />
                 <p id="del">day delivery</p>
               </span>
-              <button className="button" onClick={this.calcDays}>
-                Pay
-              </button>
+              <span id="Attachment">
+                <AiOutlineFolder style={style_component} />
+                <p>attachment</p>
+              </span>
+              <div id="div_Button" data-testid="Cancel-Button">
+                <button className="Button">Cancel</button>
+              </div>
             </div>
           </div>
         </div>
