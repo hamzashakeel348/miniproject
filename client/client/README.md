@@ -2,12 +2,12 @@
 
 Mini Project as a proof of concept for the role of **Frontend Developer at CleverX**. Please read the following document carefully and feel free to ask any questions on Angel List, in case you are confused about anything.
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install all of the dependencies.
 Similarly, Open the root folder of the repo in the terminal and run "npm install" to install all of the dependencies of the Server
 
-# APIs USed
+## APIs USed
 
 **GET** /project - Get the project data.
 **POST** /project - Post the project data.
@@ -32,35 +32,35 @@ You will also see if any errors in the console.
 
 it will run the app.js and by runnig app.js the server is started. I used Nodemon because it automatically reloads the server as we change or save the enviroment.
 
-### `npm run test` or 'npm test'
+### `npm run test || npm test`
 
 You can run this command to run the unit test deployed by the developer. By running this command, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
 
-# Documentation for the App.
+## Documentation for the App.
 
 While developing the desired App, I have used ReactJs , Vanilla CSS, and the already provided Server(based on NodeJs and ExpressJS). I have used Vanilla CSS because it was mentioned on the main repo that React and CSS skills will be analyzed in the whole app so I used vanilla CSS instead of BootStrap or any other UI-kit.
 
-# How to Start the App?
+## How to Start the App?
 
 - Open the Root folder of the App in the terminal, run "Nodemon app.js", it will execute the server.
 - After running the server, open the Client/Client in the terminal and then run "npm start", it will execute the App.
 
 # Description
 
-=> Moving Forward in the app, you will see the "Redirect to Form" button on the webpage, on clicking that the app will be directed to the Page1 of the required modal, here you will see the input boxes for different fields, such as Title, Description, Upload Attachement, Delivery Date and Cost. Except the Upload Attachement all of them are required for submitting the data. Required Validation is performed in the handleSubmit() function in "Pop.js" file. Moreover below these input boxes, you will see two labels, that will be showing you the CleverX fee for the Project Cost and then the total cost for the project. They will be updated as the input for the Project Cost updates.
+- Moving Forward in the app, you will see the "Redirect to Form" button on the webpage, on clicking that the app will be directed to the Page1 of the required modal, here you will see the input boxes for different fields, such as Title, Description, Upload Attachement, Delivery Date and Cost. Except the Upload Attachement all of them are required for submitting the data. Required Validation is performed in the handleSubmit() function in "Pop.js" file. Moreover below these input boxes, you will see two labels, that will be showing you the CleverX fee for the Project Cost and then the total cost for the project. They will be updated as the input for the Project Cost updates.
 
-=> After submitting the information, clicking on the "Create Project" Button will move you to the next modal, where you can select your payment process. Visa card payment is available for that app, first cell of the app is choosen by default, but in case if you want to pay by second card, then you can click on second cell, it will be selected. "Add Card" button is a dummy button, it does nothing.
+- After submitting the information, clicking on the "Create Project" Button will move you to the next modal, where you can select your payment process. Visa card payment is available for that app, first cell of the app is choosen by default, but in case if you want to pay by second card, then you can click on second cell, it will be selected. "Add Card" button is a dummy button, it does nothing.
 
-=> After Clicking on "Pay" Button, you will be directed to the third and the last modal of this app, where you will be getting the information for the project such as Project Cost and the total project cost inclusive of CleverX fee(20%).
-Below that you will notice that delivery dys for the project is mentioned which are calculated as per the entered Delivery date using the "CalcDays" function in "pop3.js" file.
+- After Clicking on "Pay" Button, you will be directed to the third and the last modal of this app, where you will be getting the information for the project such as Project Cost and the total project cost inclusive of CleverX fee(20%).
+  Below that you will notice that delivery dys for the project is mentioned which are calculated as per the entered Delivery date using the "CalcDays" function in "pop3.js" file.
 
-=> it's the end of the required App. if you want to cancel the order for the project, you can simply click the "Cancel" Button which will close the form for the project.
+- it's the end of the required App. if you want to cancel the order for the project, you can simply click the "Cancel" Button which will close the form for the project.
 
 # Note
 
 Responsiveness of this app was not required by the team, so I didn't deployed it for different screen sizes. I developed it on my screen size.
 
-https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1
+[](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
 
 https://www.dropbox.com/s/brzmcqf99unrhxb/page1.png?raw=1
 
