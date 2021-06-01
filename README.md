@@ -85,18 +85,30 @@ If you need VISA CARD image, please refer to this link: https://www.merchantsign
 
 Mini Project as a proof of concept for the role of **Frontend Developer at CleverX**. Please read the following document carefully and feel free to ask any questions on Angel List, in case you are confused about anything.
 
-# Getting Started with Create React App
+## Folder and Files
+
+- Main.js: it is used for providing the path to our app, onclicking the button on it will move to next page.
+- Pop.js: it generates a form wherein user can create a new project by filling in the required details
+- Popup.js: Component to represent the list of cards saved by user
+- Pop3.js: final page where user can see purchase summary to confirm their entered details or here they can cancel the purchase
+
+## Getting Started with Create React App
 
 - Clone the Repo, here you will see the Client Folder, inside it Click on Client, open that folder in terminal, and Run "npm install" to install the dependencies.
-- Similarly, Open the root folder of the repo in the terminal and run "npm install" to install the dependencies of the Server
+- Similarly, Open the root folder of the repo in the terminal and run "npm install" to install the dependencies of the Server.
 
-# APIs USed
+## APIs USed
 
 **GET** /project - Get the project data.
+
 **POST** /project - Post the project data.
+
 **AXIOS** I used axios to get and post data on the Api
+
 **@testing-library/react** I used testing library to deploy unit tests for my App.
+
 **Moment** I used Moment library for the Date Manipulation, but later on I removed it and moved to simple manipulation.
+
 **Dropbox** I used dropbox to upload the visa images on the server.
 
 ## Available Scripts
@@ -115,15 +127,15 @@ You will also see if any errors in the console.
 
 it will run the app.js and by runnig app.js the server is started. I used Nodemon because it automatically reloads the server as we change or save the enviroment.
 
-### `npm run test` or 'npm test'
+### `npm run test || npm test`
 
-You can run this command to run the unit test deployed by the developer. By running this command, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
+You can run this command to run the unit test deployed by the developer. By running this command, and then press "a" to run all test, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
 
-# Documentation for the App.
+## Documentation for the App.
 
 While developing the desired App, I have used ReactJs , Vanilla CSS, and the already provided Server(based on NodeJs and ExpressJS). I have used Vanilla CSS because it was mentioned on the main repo that React and CSS skills will be analyzed in the whole app so I used vanilla CSS instead of BootStrap or any other UI-kit.
 
-# How to Start the App?
+## How to Start the App?
 
 - Open the Root folder of the App in the terminal, run "Nodemon app.js", it will execute the server.
 - After running the server, open the Client/Client in the terminal and then run "npm start", it will execute the App.
@@ -141,7 +153,7 @@ While developing the desired App, I have used ReactJs , Vanilla CSS, and the alr
 
 # Note
 
-Responsiveness of this app was not required by the team, so I didn't deployed it for responsiveness.
+Responsiveness of this app was not required by the team, so I didn't deployed it for different screen sizes. I developed it on my screen size.
 
 ![alt text](https://www.dropbox.com/s/tpm9yeh4v54rm3n/main.png?raw=1)
 
