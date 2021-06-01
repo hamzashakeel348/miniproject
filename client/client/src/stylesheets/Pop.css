@@ -16,6 +16,8 @@
 .Heading > h2 {
   display: inline-block;
   width: 70%;
+  color: #3f3f3f;
+  font-weight: 500;
 }
 .Heading > button {
   background-color: white;
@@ -26,8 +28,8 @@
   font-weight: lighter;
 }
 .input {
-  border: 1px solid #e6eaef;
-  color: #c4cad2;
+  border: 1px solid #e6ebef;
+  color: #a8b1b9;
   height: 2em;
   width: 70%;
   border-radius: 5px;
@@ -60,7 +62,7 @@ input:focus {
   font-size: 0.9em;
 }
 .button {
-  background-color: #1053df;
+  background-color: #2955e4;
   color: white;
   border: none;
   padding: 1em 3em;
