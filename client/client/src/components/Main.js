@@ -1,7 +1,7 @@
 import React from "react";
-import Pop from "./Pop";
 import "../stylesheets/Main.css";
-import Popthree from "./pop3";
+import Pop from "./Pop";
+
 class Main extends React.Component {
   constructor() {
     super();
@@ -17,13 +17,17 @@ class Main extends React.Component {
     if (this.state.check) {
       return (
         <div>
-          <Popthree></Popthree>
+          <Pop></Pop>
         </div>
       );
     } else {
       return (
         <div>
-          <button className="button" onClick={this.handleClick}>
+          <button
+            className="button"
+            onClick={this.handleClick}
+            data-testid="Main"
+          >
             Redirect to Form
           </button>
         </div>
