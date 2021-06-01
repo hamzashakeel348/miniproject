@@ -34,7 +34,7 @@ it will run the app.js and by runnig app.js the server is started. I used Nodemo
 
 ### `npm run test || npm test`
 
-You can run this command to run the unit test deployed by the developer. By running this command, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
+You can run this command to run the unit test deployed by the developer. By running this command, and then press "a" to run all test, you will get the result of 4 tests, showing result separately for all components of the ReactJs app.
 
 ## Documentation for the App.
 
