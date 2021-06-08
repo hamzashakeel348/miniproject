@@ -6,18 +6,17 @@ import axios from "axios";
 
 //Styled Components for Body Tags
 const mystyle = {
-  height: "7em",
+  height: "6em",
+  paddingTop: "1em",
+  resize: "none",
 };
+
 const updated = {
   width: "25%",
 };
 var dateFormat = require("dateformat");
 
-let title,
-  description,
-  delDate,
-  projectCost,
-  difference = 0;
+let title, description, delDate, projectCost;
 const getvalues = () => {
   title = document.getElementById("title").value;
   projectCost = document.getElementById("Cost").value;
@@ -36,7 +35,10 @@ class Pop extends React.Component {
     };
   }
   handleChange = (num) =>
-    this.setState({ number: num * 0.2, cost: num * 1 + num * 0.2 });
+    this.setState({
+      number: Math.round(num * 0.2),
+      cost: Math.round(num * 1 + num * 0.2),
+    });
 
   handleClick = () => {
     this.setState({ check: true });
@@ -44,6 +46,7 @@ class Pop extends React.Component {
   handleSubmit = (event) => {
     getvalues();
     let isInvalidForm = false;
+    delDate = delDate.trim();
     let spl = delDate.split("/");
     const currentDate = new Date();
     let curr = dateFormat(currentDate, "dd/mm/yyyy");
@@ -65,23 +68,19 @@ class Pop extends React.Component {
 
       isInvalidForm = true;
     }
-    if (spl[2] < curr[2]) {
+
+    if (delDate === "") {
       isInvalidForm = true;
-      console.log("yes less");
+      alert("invalid date");
+    } else if (spl[2] < curr[2]) {
+      isInvalidForm = true;
+      alert("Date is not in Future");
     } else if (spl[1] < curr[1]) {
       isInvalidForm = true;
-      console.log("month less");
-    } else if (spl[0] <= curr[0] && spl[1] < curr[1] && spl[2] < curr[2]) {
+      alert("Date is not in Future");
+    } else if (spl[0] <= curr[0] && spl[1] >= curr[1] && spl[2] >= curr[2]) {
       isInvalidForm = true;
-      console.log("day less");
-    } else {
-      if (spl[2] >= curr[2] && spl[1] >= curr[1] && spl[0] > curr[0]) {
-        difference =
-          (curr[2] - spl[2]) * 365 +
-          (spl[1] - curr[1]) * 30 +
-          (spl[0] - curr[0]);
-        console.log(difference);
-      }
+      alert("Date is not in Future");
     }
     if (isInvalidForm) {
       return -1;
@@ -134,14 +133,14 @@ class Pop extends React.Component {
               placeholder="Title"
               required
             />
-            <input
+            <textarea
               type="text"
               style={mystyle}
               className="input"
               id="Description"
               required
               placeholder="Description"
-            />
+            ></textarea>
             <input
               className="input"
               type="text"
@@ -151,7 +150,7 @@ class Pop extends React.Component {
               type="text"
               className="input"
               id="Delivery"
-              placeholder="Delivery Date in DD/MM/YYYY Format"
+              placeholder="Delivery date"
             />
             <input
               type="text"
