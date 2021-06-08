@@ -86,9 +86,12 @@ class Popthree extends React.Component {
             <div id="section2">
               <h4>I'll be your business expert</h4>
               <span>
-                <h4 data-testid="Cell1">${this.state.data.cost}</h4>
+                <h4 data-testid="Cell1">${Math.round(this.state.data.cost)}</h4>
                 <p data-testid="Cell2">
-                  Total : ${+this.state.data.cost * 0.2 + +this.state.data.cost}{" "}
+                  Total : $
+                  {Math.round(
+                    +this.state.data.cost * 0.2 + +this.state.data.cost
+                  )}{" "}
                 </p>
                 <p>(CleverX fee + 20%)</p>
               </span>
