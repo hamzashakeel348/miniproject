@@ -17,9 +17,7 @@ it("Pop1 Clears Tests", () => {
   expect(queryByTestId("Cell2")).toBeTruthy();
   expect(queryByPlaceholderText("Title")).toBeTruthy();
   expect(queryByPlaceholderText("Description")).toBeTruthy();
-  expect(
-    queryByPlaceholderText("Delivery Date in DD/MM/YYYY Format")
-  ).toBeTruthy();
+  expect(queryByPlaceholderText("Delivery date")).toBeTruthy();
   expect(queryByPlaceholderText("Project Cost")).toBeTruthy();
   expect(queryByTestId("Project-Button")).toBeTruthy();
 });
